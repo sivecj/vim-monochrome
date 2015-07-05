@@ -93,6 +93,24 @@ hi :CursorLineNr, fg: white, bold: true
 hi :FoldColumn, fg: dgray
 hi :Folded
 
+# Tab bar.
+hi :TabLine, bg: bgray
+hi :TabLineFill, fg: bgray, bg:bgray
+hi :TabLineSel, bg: sblue
+
+# Status bar.
+hi :StatusLine, fg: lgray, bg: bgray
+hi :StatusLineNC, fg: cgray, bg: bgray
+
+# Mark column.
+hi :SignColumn, bg: black 
+
+# Vert split bar.
+hi :VertSplit, fg: bgray, bg: bgray
+
+# 80 char column.
+hi :ColorColumn, bg: bgray
+
 # Line numbers gutter.
 hi :LineNr, fg: dgray
 
