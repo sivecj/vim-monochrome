@@ -7,3 +7,5 @@ Added some colours for some UI elements including:
   - Split separator
   - Buffer Info
   - Etc
+
+![Screenshot](https://github.com/kcsongor/vim-monochrome/blob/master/screenshot.png)
