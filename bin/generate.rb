@@ -31,7 +31,7 @@ def dgray
 end
 
 def sblue
-  { gui: '#778899', cterm: 67 }
+  { gui: '#778899', cterm: 35}
 end
 
 def yellow
