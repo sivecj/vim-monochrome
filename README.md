@@ -1,20 +1,9 @@
-## monochrome - A dark Vim color scheme for your focused hacking sessions
+## monochrome-green - A fork of vim-monochrome colorscheme.
+Main colour is green (cterm 35) instead of the original blue
+
 Added some colours for some UI elements including:
   - Tab backgrounds
   - ColorColumn
   - Split separator
   - Buffer Info
   - Etc
-
-### Installation
-
-    cd ~/.vim/bundle
-    git clone https://github.com/kcsongor/vim-monochrome.git
-
-### Configuration
-
-This color scheme works in GUIs and 256 color terminals, throw this to your
-_~/.vimrc_:
-
-    syntax on
-    colorscheme monochrome
