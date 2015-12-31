@@ -24,7 +24,7 @@ hi FoldColumn guifg=DarkGray ctermfg=248 guibg=Black ctermbg=16 gui=NONE cterm=N
 hi Folded guifg=LightGray ctermfg=252 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
 hi TabLine guifg=LightGray ctermfg=252 guibg=#202020 ctermbg=234 gui=NONE cterm=NONE term=NONE
 hi TabLineFill guifg=#202020 ctermfg=234 guibg=#202020 ctermbg=234 gui=NONE cterm=NONE term=NONE
-hi TabLineSel guifg=LightGray ctermfg=252 guibg=#778899 ctermbg=35 gui=NONE cterm=NONE term=NONE
+hi TabLineSel guifg=Black ctermfg=16 guibg=#778899 ctermbg=35 gui=NONE cterm=NONE term=NONE
 hi StatusLine guifg=LightGray ctermfg=252 guibg=#202020 ctermbg=234 gui=NONE cterm=NONE term=NONE
 hi StatusLineNC guifg=#737373 ctermfg=243 guibg=#202020 ctermbg=234 gui=NONE cterm=NONE term=NONE
 hi SignColumn guifg=LightGray ctermfg=252 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE

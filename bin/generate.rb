@@ -100,7 +100,7 @@ hi :Folded
 # Tab bar.
 hi :TabLine, bg: bgray
 hi :TabLineFill, fg: bgray, bg:bgray
-hi :TabLineSel, bg: sblue
+hi :TabLineSel, fg: black, bg: sblue
 
 # Status bar.
 hi :StatusLine, fg: lgray, bg: bgray
