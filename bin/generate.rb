@@ -124,7 +124,7 @@ hi :Type, fg: white, bold: true
 hi :Function, fg: white
 hi :Identifier
 hi :Special
-hi :MatchParen, fg: black, bg: lgray
+hi :MatchParen, fg: lgray, bg: black, :underline => true
 
 # Ruby tweaks.
 hi :rubyConstant
