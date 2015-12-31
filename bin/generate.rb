@@ -38,6 +38,10 @@ def yellow
   { gui: 'Yellow', cterm: 226 }
 end
 
+def none
+  { gui: 'NONE', cterm: 'NONE' }
+end
+
 def hi(group, options={})
   tokens = []
   tokens << 'hi'
@@ -86,7 +90,7 @@ hi :Normal
 hi :Cursor, fg: black, bg: lgray
 
 # Cursor line.
-hi :CursorLine, bg: bgray
+hi :CursorLine, fg: none, bg: bgray
 hi :CursorLineNr, fg: white, bold: true
 
 # Folding.
