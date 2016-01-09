@@ -42,6 +42,10 @@ def none
   { gui: 'NONE', cterm: 'NONE' }
 end
 
+def red
+  { gui: 'Red', cterm: 1 }
+end
+
 def hi(group, options={})
   tokens = []
   tokens << 'hi'
@@ -92,6 +96,10 @@ hi :Cursor, fg: black, bg: lgray
 # Cursor line.
 hi :CursorLine, fg: none, bg: bgray
 hi :CursorLineNr, fg: white, bold: true
+
+# Diff
+hi :diffAdded, fg: sblue, bg: black
+hi :diffRemoved, fg: red, bg: black
 
 # Folding.
 hi :FoldColumn, fg: dgray
