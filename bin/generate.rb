@@ -18,6 +18,10 @@ def bgray
   { gui: '#202020', cterm: 234 }
 end
 
+def lineNr
+  { gui: '#202020', cterm: 238 }
+end
+
 def lgray
   { gui: 'LightGray', cterm: 252 }
 end
@@ -108,23 +112,23 @@ hi :Folded
 # Tab bar.
 hi :TabLine, bg: bgray
 hi :TabLineFill, fg: bgray, bg:bgray
-hi :TabLineSel, fg: black, bg: sblue
+hi :TabLineSel, fg: black, bg: lgray
 
 # Status bar.
-hi :StatusLine, fg: lgray, bg: bgray
-hi :StatusLineNC, fg: cgray, bg: bgray
+hi :StatusLine, fg: lgray, bg: black
+hi :StatusLineNC, fg: cgray, bg: black
 
 # Mark column.
 hi :SignColumn, bg: black 
 
 # Vert split bar.
-hi :VertSplit, fg: bgray, bg: bgray
+hi :VertSplit, fg: lgray, bg: black
 
 # 80 char column.
 hi :ColorColumn, bg: bgray
 
 # Line numbers gutter.
-hi :LineNr, fg: dgray
+hi :LineNr, fg: lineNr
 
 # Main groups for programming langages.
 hi :Statement, fg: white, bold: true
