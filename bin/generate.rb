@@ -142,6 +142,8 @@ hi :Identifier
 hi :Special
 hi :MatchParen, fg: lgray, bg: black, :underline => true
 
+hi :Conceal, fg: white, bg: black, bold: true
+
 # Ruby tweaks.
 hi :rubyConstant
 hi :rubySharpBang, fg: cgray
