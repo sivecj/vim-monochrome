@@ -17,11 +17,16 @@ let g:colors_name = 'monochrome'
 
 " These commands are generated, see bin/generate.rb.
 hi Normal guifg=LightGray ctermfg=252 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
-hi Cursor guifg=LightGray ctermfg=252 guibg=LightGray ctermbg=252 gui=NONE cterm=NONE term=NONE
+hi Cursor guifg=White ctermfg=15 guibg=White ctermbg=15 gui=NONE cterm=NONE term=NONE
+hi iCursor guifg=White ctermfg=15 guibg=White ctermbg=15 gui=NONE cterm=NONE term=NONE
 hi CursorLine guifg=NONE ctermfg=NONE guibg=#202020 ctermbg=234 gui=NONE cterm=NONE term=NONE
 hi CursorLineNr guifg=White ctermfg=15 guibg=Black ctermbg=16 gui=bold cterm=bold term=bold
 hi diffAdded guifg=#778899 ctermfg=35 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
 hi diffRemoved guifg=Red ctermfg=1 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
+hi DiffAdd guifg=#778899 ctermfg=35 guibg=DarkGray ctermbg=232 gui=NONE cterm=NONE term=NONE
+hi DiffChange guifg=#778899 ctermfg=20 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
+hi DiffDelete guifg=Red ctermfg=1 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
+hi DiffText guifg=Yellow ctermfg=226 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
 hi FoldColumn guifg=DarkGray ctermfg=248 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
 hi Folded guifg=LightGray ctermfg=252 guibg=Black ctermbg=16 gui=NONE cterm=NONE term=NONE
 hi TabLine guifg=LightGray ctermfg=252 guibg=#202020 ctermbg=234 gui=NONE cterm=NONE term=NONE
