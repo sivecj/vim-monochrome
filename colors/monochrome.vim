@@ -13,11 +13,11 @@ hi iCursor ctermfg=15 ctermbg=15 cterm=NONE term=NONE
 hi CursorLine ctermfg=NONE ctermbg=235 cterm=NONE term=NONE
 hi CursorLineNr ctermfg=15 ctermbg=NONE cterm=bold term=bold
 hi diffAdded ctermfg=35 ctermbg=NONE cterm=NONE term=NONE
-hi diffRemoved ctermfg=1 ctermbg=NONE cterm=NONE term=NONE
-hi DiffAdd ctermfg=35 ctermbg=232 cterm=NONE term=NONE
-hi DiffChange ctermfg=20 ctermbg=NONE cterm=NONE term=NONE
-hi DiffDelete ctermfg=1 ctermbg=NONE cterm=NONE term=NONE
-hi DiffText ctermfg=226 ctermbg=NONE cterm=NONE term=NONE
+hi diffRemoved ctermfg=196 ctermbg=NONE cterm=NONE term=NONE
+hi DiffAdd    ctermfg=NONE    ctermbg=237
+hi DiffChange ctermfg=NONE    ctermbg=NONE
+hi DiffDelete ctermfg=233     ctermbg=237
+hi DiffText   ctermfg=197  ctermbg=NONE
 hi FoldColumn ctermfg=248 ctermbg=NONE cterm=NONE term=NONE
 hi Folded ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
 hi TabLine ctermfg=243 ctermbg=233 cterm=NONE term=NONE
@@ -70,17 +70,20 @@ hi Error ctermbg=196
 hi SpellBad ctermfg=NONE ctermbg=1 cterm=undercurl
 
 hi haskellBlockComment ctermfg=246 ctermbg=NONE cterm=NONE term=NONE
-
-hi SignColumn ctermbg=233
-hi GitGutterAdd ctermbg=233 ctermfg=245
-hi GitGutterChange ctermbg=233 ctermfg=245
-hi GitGutterDelete ctermbg=233 ctermfg=245
-hi GitGutterChangeDelete ctermbg=233 ctermfg=245
-hi EndOfBuffer ctermfg=237 ctermbg=233
-
 hi haskellDeclKeyword ctermfg=NONE
 hi haskellDecl ctermfg=NONE
 hi haskellWhere ctermfg=NONE
+
+hi SignColumn ctermbg=233
+
+
+
+hi! link GitGutterAdd diffAdded
+hi! link GitGutterDelete diffRemoved
+hi GitGutterChange ctermbg=233 ctermfg=1
+hi GitGutterChangeDelete ctermbg=233 ctermfg=245
+
+hi EndOfBuffer ctermfg=237 ctermbg=233
 
 hi! link SpecialChar      Special
 hi! link Tag              Special
