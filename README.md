@@ -1,3 +1,10 @@
-## Dark colorscheme for vim
+## Minimal colorscheme for vim
 
-![Screenshot](https://github.com/kcsongor/vim-monochrome/blob/master/screenshot.png)
+```
+set background=dark
+```
+![Dark](https://github.com/kcsongor/vim-monochrome/blob/master/res/screenshot-dark.png)
+```
+set background=light
+```
+![Light](https://github.com/kcsongor/vim-monochrome/blob/master/res/screenshot-light.png)

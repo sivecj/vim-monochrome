@@ -1,92 +1,189 @@
-set background=dark
-
 hi clear
-if exists('syntax_on')
-   syntax reset
+
+if exists('syntax on')
+    syntax reset
 endif
 
-let g:colors_name = 'monochrome'
+let g:colors_name='monochrome'
 
-hi Normal ctermfg=253 ctermbg=233 cterm=NONE term=NONE
-hi Cursor ctermfg=15 ctermbg=15 cterm=NONE term=NONE
-hi iCursor ctermfg=15 ctermbg=15 cterm=NONE term=NONE
-hi CursorLine ctermfg=NONE ctermbg=235 cterm=NONE term=NONE
-hi CursorLineNr ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi diffAdded ctermfg=35 ctermbg=NONE cterm=NONE term=NONE
-hi diffRemoved ctermfg=196 ctermbg=NONE cterm=NONE term=NONE
-hi DiffAdd    ctermfg=NONE    ctermbg=237
-hi DiffChange ctermfg=NONE    ctermbg=NONE
-hi DiffDelete ctermfg=233     ctermbg=237
-hi DiffText   ctermfg=197  ctermbg=NONE
-hi FoldColumn ctermfg=248 ctermbg=NONE cterm=NONE term=NONE
-hi Folded ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
-hi TabLine ctermfg=243 ctermbg=233 cterm=NONE term=NONE
-hi TabLineFill ctermfg=233 ctermbg=233 cterm=NONE term=NONE
-hi TabLineSel ctermfg=35 ctermbg=233 cterm=NONE term=NONE
-hi StatusLine ctermfg=250 ctermbg=233 cterm=NONE term=bold
-hi StatusLineNC ctermfg=245 ctermbg=233 cterm=NONE term=NONE
-hi SignColumn ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vertsplit ctermfg=233 ctermbg=234
-hi ColorColumn ctermfg=252 ctermbg=233 cterm=NONE term=NONE
-hi LineNr ctermfg=238 ctermbg=NONE cterm=NONE term=NONE
-hi Statement ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi PreProc ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi String ctermfg=35 ctermbg=NONE cterm=NONE term=NONE
-hi Comment ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
-hi Constant ctermfg=35 ctermbg=NONE cterm=NONE term=NONE
-hi Type ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi Function ctermfg=15 ctermbg=NONE cterm=NONE term=NONE
-hi Identifier ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi Special ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
-hi MatchParen ctermfg=251 ctermbg=239 cterm=underline term=underline
-hi Conceal ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi rubyConstant ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi rubySharpBang ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
-hi javaScriptFunction ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi Search ctermfg=15 ctermbg=35 cterm=NONE term=NONE
-hi Visual ctermfg=16 ctermbg=255 cterm=NONE term=NONE
-hi NonText ctermfg=248 ctermbg=NONE cterm=NONE term=NONE
-hi Directory ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi Title ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi markdownHeadingDelimiter ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi markdownHeadingRule ctermfg=15 ctermbg=NONE cterm=bold term=bold
-hi markdownLinkText ctermfg=255 ctermbg=NONE cterm=underline term=underline
-hi Todo ctermfg=16 ctermbg=226 cterm=bold term=bold
-hi Pmenu ctermfg=15 ctermbg=243 cterm=NONE term=NONE
-hi PmenuSel ctermfg=15 ctermbg=235 cterm=NONE term=NONE
-hi helpSpecial ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi helpHyperTextJump ctermfg=35 ctermbg=NONE cterm=underline term=underline
-hi helpNote ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimOption ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimGroup ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimHiClear ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimHiGroup ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimHiAttrib ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimHiCTerm ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimHiCTermFgBg ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimSynType ctermfg=252 ctermbg=NONE cterm=NONE term=NONE
-hi vimCommentTitle ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
-hi Error ctermbg=196
-hi SpellBad ctermfg=NONE ctermbg=1 cterm=undercurl
+" https://github.com/noahfrederick/vim-hemisu/
+function! s:h(group, style)
+  execute "highlight" a:group
+    \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
+    \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
+    \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+endfunction
 
-hi haskellBlockComment ctermfg=246 ctermbg=NONE cterm=NONE term=NONE
-hi haskellDeclKeyword ctermfg=NONE
-hi haskellDecl ctermfg=NONE
-hi haskellWhere ctermfg=NONE
+" Definitions {{{1
+let s:actual_white    = { "cterm": "231" }
+let s:black           = { "cterm": "233" }
+let s:blue            = { "cterm": "12"  }
+let s:dark_blue       = { "cterm": "4"   }
+let s:dark_cyan       = { "cterm": "6"   }
+let s:dark_green      = { "cterm": "2"   }
+let s:dark_purple     = { "cterm": "5"   }
+let s:dark_red        = { "cterm": "1"   }
+let s:dark_red        = { "cterm": "160" }
+let s:dark_yellow     = { "cterm": "3"   }
+let s:darker_blue     = { "cterm": "18"  }
+let s:light_black     = { "cterm": "8"   }
+let s:light_black_2   = { "cterm": "237" }
+let s:light_blue      = { "cterm": "153" }
+let s:light_cyan      = { "cterm": "14"  }
+let s:light_gray      = { "cterm": "245" }
+let s:light_gray_2    = { "cterm": "252" }
+let s:light_green     = { "cterm": "10"  }
+let s:light_purple    = { "cterm": "13"  }
+let s:light_red       = { "cterm": "1"   }
+let s:lighter_black   = { "cterm": "240" }
+let s:lighter_gray    = { "cterm": "255" }
+let s:medium_gray     = { "cterm": "243" }
+let s:nice_green      = { "cterm": "35"  }
+let s:nice_yellow     = { "cterm": "226" }
+let s:orange          = { "cterm": "167" }
+let s:pink            = { "cterm": "9"   }
+let s:subtle_black    = { "cterm": "234" }
+let s:white           = { "cterm": "15"  }
+let s:yellow          = { "cterm": "11"  }
 
-hi SignColumn ctermbg=233
+let g:old_bg=&background
 
+if &background == "dark"
+  let s:bg              = s:black
+  let s:bg_subtle       = s:light_black
+  let s:bg_mild_subtle  = s:light_black_2
+  let s:bg_very_subtle  = s:subtle_black
+  let s:norm_strong     = s:actual_white
+  let s:norm_inverse    = s:black
+  let s:norm            = s:lighter_gray
+  let s:norm_subtle     = s:light_gray
+  let s:purple          = s:light_purple
+  let s:cyan            = s:light_cyan
+  let s:green           = s:light_green
+  let s:red             = s:light_red
+  let s:visual          = s:lighter_black
+  let s:accent          = { "cterm" : "36" }
+else
+  let s:bg              = s:white
+  let s:bg_subtle       = s:light_gray
+  let s:bg_mild_subtle  = s:light_gray_2
+  let s:bg_very_subtle  = s:lighter_gray
+  let s:norm_strong     = s:black
+  let s:norm_inverse    = s:white
+  let s:norm            = s:light_black
+  let s:norm_subtle     = s:light_gray
+  let s:purple          = s:dark_purple
+  let s:cyan            = s:dark_cyan
+  let s:green           = s:dark_green
+  let s:red             = s:dark_red
+  let s:visual          = s:light_blue
+  let s:accent          = { "cterm" : "62" }
+endif
+"}}}1
+" Generic colours {{{1
+call s:h("ColorColumn",           { "bg": s:bg_very_subtle})
+call s:h("Comment",               { "fg": s:norm_subtle, "gui": "italic"})
+call s:h("Constant",              { "fg": s:accent})
+call s:h("Cursor",                { "bg": s:blue, "fg": s:norm})
+call s:h("CursorColumn",          { "bg": s:bg_very_subtle})
+call s:h("CursorLine",            { "bg": s:lighter_gray})
+call s:h("CursorLineNr",          { "cterm": "bold"})
+call s:h("DiffAdd",               { "bg": s:bg_mild_subtle})
+call s:h("DiffChange",            { "bg": s:bg_very_subtle})
+call s:h("DiffDelete",            { "fg": s:bg_subtle, "bg": s:bg_mild_subtle})
+call s:h("DiffText",              { "fg": s:red})
+call s:h("Directory",             { "fg": s:norm_strong})
+call s:h("Error",                 { "fg": s:red, "cterm": "bold"})
+call s:h("ErrorMsg",              { "fg": s:pink})
+call s:h("FoldColumn",            { "fg": s:bg_subtle})
+call s:h("Folded",                { "fg": s:medium_gray})
+call s:h("GitGutterAdd",          { "fg": s:nice_green, "cterm": "bold"})
+call s:h("GitGutterChange",       { "fg": s:nice_yellow, "cterm": "bold"})
+call s:h("GitGutterChangeDelete", { "fg": s:yellow, "cterm": "bold"})
+call s:h("GitGutterDelete",       { "fg": s:dark_red, "cterm": "bold"})
+call s:h("Identifier",            { "fg": s:norm})
+call s:h("Ignore",                { "fg": s:bg})
+call s:h("IncSearch",             { "bg": s:yellow, "fg": s:norm_inverse})
+call s:h("LineNr",                { "fg": s:norm_subtle})
+call s:h("MatchParen",            { "bg": s:lighter_gray, "fg": s:norm})
+call s:h("MoreMsg",               { "fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
+call s:h("Noise",                 { "fg": s:norm_subtle})
+call s:h("NonText",               { "fg": s:medium_gray})
+call s:h("Normal",                { "fg": s:norm})
+call s:h("Pmenu",                 { "fg": s:norm, "bg": s:bg_very_subtle})
+call s:h("PmenuSbar",             { "fg": s:norm, "bg": s:bg_subtle})
+call s:h("PmenuSel",              { "fg": s:norm_inverse, "bg": s:accent})
+call s:h("PmenuThumb",            { "fg": s:norm, "bg": s:bg_subtle})
+call s:h("Question",              { "fg": s:red})
+call s:h("Search",                { "bg": s:yellow, "fg": s:norm_inverse})
+call s:h("SignColumn",            { "fg": s:light_green})
+call s:h("Special",               { "fg": s:norm_subtle})
+call s:h("SpecialKey",            { "fg": s:light_green})
+call s:h("SpellBad",              { "cterm": "underline", "fg": s:red})
+call s:h("SpellCap",              { "cterm": "underline", "fg": s:light_green})
+call s:h("SpellLocal",            { "cterm": "underline", "fg": s:dark_green})
+call s:h("SpellRare",             { "cterm": "underline", "fg": s:pink})
+call s:h("Statement",             { "fg": s:norm, "cterm": "bold"})
+call s:h("StatusLine",            { "bg": s:bg_very_subtle})
+call s:h("StatusLineNC",          { "bg": s:bg_very_subtle, "fg": s:medium_gray})
+call s:h("TabLine",               { "fg": s:norm_subtle, "bg": s:bg})
+call s:h("TabLineFill",           { "fg": s:norm, "bg": s:bg})
+call s:h("TabLineSel",            { "fg": s:accent, "bg": s:bg})
+call s:h("Title",                 { "fg": s:accent})
+call s:h("Todo",                  { "fg": s:black, "bg": s:nice_yellow, "gui": "bold", "cterm": "bold"})
+call s:h("Type",                  { "fg": s:norm_strong, "cterm": "bold"})
+call s:h("Underlined",            { "fg": s:norm, "gui": "underline", "cterm": "underline"})
+call s:h("VertSplit",             { "bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
+call s:h("Visual",                { "bg": s:visual})
+call s:h("VisualNOS",             { "bg": s:bg_subtle})
+call s:h("WarningMsg",            { "fg": s:red})
+call s:h("WildMenu",              { "fg": s:norm_inverse, "bg": s:accent})
+call s:h("diffAdded",             { "fg": s:nice_green})
+call s:h("diffRemoved",           { "fg": s:dark_red})
+call s:h("qfLineNr",              { "fg": s:medium_gray})
 
+" Links {{{1
+hi! link Character        Constant
+hi! link Number           Constant
+hi! link Boolean          Constant
+hi! link Float            Constant
+hi! link String           Constant
 
-hi! link GitGutterAdd diffAdded
-hi! link GitGutterDelete diffRemoved
-hi GitGutterChange ctermbg=233 ctermfg=1
-hi GitGutterChangeDelete ctermbg=233 ctermfg=245
+hi! link Function         Identifier
 
-hi EndOfBuffer ctermfg=237 ctermbg=233
+hi! link Conditonal       Statement
+hi! link Repeat           Statement
+hi! link Label            Statement
+hi! link Operator         Noise
+hi! link Keyword          Statement
+hi! link Exception        Statement
+
+hi! link PreProc          Normal
+hi! link Include          Statement
+hi! link Define           PreProc
+hi! link Macro            PreProc
+hi! link PreCondit        PreProc
+
+hi! link StorageClass     Type
+hi! link Structure        Type
+hi! link Typedef          Type
 
 hi! link SpecialChar      Special
 hi! link Tag              Special
 hi! link Delimiter        Special
 hi! link SpecialComment   Special
 hi! link Debug            Special
+hi! link ModeMsg          MoreMsg
+
+" My custom groups {{{1
+call s:h("Status0",         {"fg": s:norm, "bg": s:bg_very_subtle})
+call s:h("Status1",         {"fg": s:norm_strong, "bg": s:bg_mild_subtle})
+call s:h("FoundGroup",      {"fg": s:blue})
+call s:h("NoteSign",        {"fg": s:blue})
+
+" Haskell {{{1
+hi! link haskellBlockComment Comment
+hi! link hsVarSym Statement
+"}}}1
+
+execute (":set background=" . g:old_bg)
