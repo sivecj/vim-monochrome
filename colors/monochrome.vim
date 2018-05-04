@@ -9,42 +9,46 @@ let g:colors_name='monochrome'
 " https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
   execute "highlight" a:group
-    \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
-    \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
-    \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+        \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+        \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+        \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+        \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+        \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
+        \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
+        \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
 
 " Definitions {{{1
-let s:actual_white    = { "cterm": "231" }
-let s:black           = { "cterm": "233" }
-let s:blue            = { "cterm": "12"  }
-let s:dark_blue       = { "cterm": "4"   }
-let s:dark_cyan       = { "cterm": "6"   }
-let s:dark_green      = { "cterm": "2"   }
-let s:dark_purple     = { "cterm": "5"   }
-let s:dark_red        = { "cterm": "1"   }
-let s:dark_red        = { "cterm": "160" }
-let s:dark_yellow     = { "cterm": "3"   }
-let s:darker_blue     = { "cterm": "18"  }
-let s:light_black     = { "cterm": "8"   }
-let s:light_black_2   = { "cterm": "237" }
-let s:light_blue      = { "cterm": "153" }
-let s:light_cyan      = { "cterm": "14"  }
-let s:light_gray      = { "cterm": "245" }
-let s:light_gray_2    = { "cterm": "252" }
-let s:light_green     = { "cterm": "10"  }
-let s:light_purple    = { "cterm": "13"  }
-let s:light_red       = { "cterm": "1"   }
-let s:lighter_black   = { "cterm": "240" }
-let s:lighter_gray    = { "cterm": "255" }
-let s:medium_gray     = { "cterm": "243" }
-let s:nice_green      = { "cterm": "35"  }
-let s:nice_yellow     = { "cterm": "226" }
-let s:orange          = { "cterm": "167" }
-let s:pink            = { "cterm": "9"   }
-let s:subtle_black    = { "cterm": "234" }
-let s:white           = { "cterm": "15"  }
-let s:yellow          = { "cterm": "11"  }
+let s:actual_white    = { "gui" : "#ffffff", "cterm": "231" }
+let s:black           = { "gui" : "#000000", "cterm": "233" }
+let s:blue            = { "gui" : "#0000ff", "cterm": "12"  }
+let s:dark_blue       = { "gui" : "#000080", "cterm": "4"   }
+let s:dark_cyan       = { "gui" : "#008080", "cterm": "6"   }
+let s:dark_green      = { "gui" : "#008000", "cterm": "2"   }
+let s:dark_purple     = { "gui" : "#800080", "cterm": "5"   }
+let s:dark_red        = { "gui" : "#800000", "cterm": "1"   }
+let s:dark_red        = { "gui" : "#df0000", "cterm": "160" }
+let s:dark_yellow     = { "gui" : "#808000", "cterm": "3"   }
+let s:darker_blue     = { "gui" : "#000087", "cterm": "18"  }
+let s:light_black     = { "gui" : "#808080", "cterm": "8"   }
+let s:light_black_2   = { "gui" : "#3a3a3a", "cterm": "237" }
+let s:light_blue      = { "gui" : "#afdfff", "cterm": "153" }
+let s:light_cyan      = { "gui" : "#00ffff", "cterm": "14"  }
+let s:light_gray      = { "gui" : "#808080", "cterm": "245" }
+let s:light_gray_2    = { "gui" : "#d0d0d0", "cterm": "252" }
+let s:light_green     = { "gui" : "#00ff00", "cterm": "10"  }
+let s:light_purple    = { "gui" : "#ff00ff", "cterm": "13"  }
+let s:light_red       = { "gui" : "#800000", "cterm": "1"   }
+let s:lighter_black   = { "gui" : "#585858", "cterm": "240" }
+let s:lighter_gray    = { "gui" : "#eeeeee", "cterm": "255" }
+let s:medium_gray     = { "gui" : "#767676", "cterm": "243" }
+let s:nice_green      = { "gui" : "#00af5f", "cterm": "35"  }
+let s:nice_yellow     = { "gui" : "#ffff00", "cterm": "226" }
+let s:orange          = { "gui" : "#df5f5f", "cterm": "167" }
+let s:pink            = { "gui" : "#ff0000", "cterm": "9"   }
+let s:subtle_black    = { "gui" : "#1c1c1c", "cterm": "234" }
+let s:white           = { "gui" : "#ffffff", "cterm": "15"  }
+let s:yellow          = { "gui" : "#fffa00", "cterm": "11"  }
 
 let g:old_bg=&background
 
@@ -57,12 +61,12 @@ if &background == "dark"
   let s:norm_inverse    = s:black
   let s:norm            = s:lighter_gray
   let s:norm_subtle     = s:light_gray
-  let s:purple          = s:light_purple
+  let s:purple          = s:dark_purple
   let s:cyan            = s:light_cyan
   let s:green           = s:light_green
   let s:red             = s:light_red
   let s:visual          = s:lighter_black
-  let s:accent          = { "cterm" : "36" }
+  let s:accent          = { "gui" : "#00af87", "cterm" : "36" }
 else
   let s:bg              = s:white
   let s:bg_subtle       = s:light_gray
@@ -70,14 +74,14 @@ else
   let s:bg_very_subtle  = s:lighter_gray
   let s:norm_strong     = s:black
   let s:norm_inverse    = s:white
-  let s:norm            = s:light_black
+  let s:norm            = s:black
   let s:norm_subtle     = s:light_gray
   let s:purple          = s:dark_purple
   let s:cyan            = s:dark_cyan
   let s:green           = s:dark_green
   let s:red             = s:dark_red
   let s:visual          = s:light_blue
-  let s:accent          = { "cterm" : "62" }
+  let s:accent          = { "gui" : "#5f5fdf", "cterm" : "62" }
 endif
 "}}}1
 " Generic colours {{{1
@@ -103,19 +107,20 @@ call s:h("GitGutterChangeDelete", { "fg": s:yellow, "cterm": "bold"})
 call s:h("GitGutterDelete",       { "fg": s:dark_red, "cterm": "bold"})
 call s:h("Identifier",            { "fg": s:norm})
 call s:h("Ignore",                { "fg": s:bg})
-call s:h("IncSearch",             { "bg": s:yellow, "fg": s:norm_inverse})
+call s:h("IncSearch",             { "bg": s:purple, "fg": s:white})
 call s:h("LineNr",                { "fg": s:norm_subtle})
 call s:h("MatchParen",            { "bg": s:lighter_gray, "fg": s:norm})
 call s:h("MoreMsg",               { "fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 call s:h("Noise",                 { "fg": s:norm_subtle})
 call s:h("NonText",               { "fg": s:medium_gray})
-call s:h("Normal",                { "fg": s:norm})
+call s:h("Normal",                { "fg": s:norm, "bg": s:bg})
+call s:h("EndOfBuffer",           { "fg": s:bg, "bg": s:bg})
 call s:h("Pmenu",                 { "fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("PmenuSbar",             { "fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuSel",              { "fg": s:norm_inverse, "bg": s:accent})
 call s:h("PmenuThumb",            { "fg": s:norm, "bg": s:bg_subtle})
 call s:h("Question",              { "fg": s:red})
-call s:h("Search",                { "bg": s:yellow, "fg": s:norm_inverse})
+call s:h("Search",                { "bg": s:purple, "fg": s:white})
 call s:h("SignColumn",            { "fg": s:light_green})
 call s:h("Special",               { "fg": s:norm_subtle})
 call s:h("SpecialKey",            { "fg": s:light_green})
@@ -123,7 +128,7 @@ call s:h("SpellBad",              { "cterm": "underline", "fg": s:red})
 call s:h("SpellCap",              { "cterm": "underline", "fg": s:light_green})
 call s:h("SpellLocal",            { "cterm": "underline", "fg": s:dark_green})
 call s:h("SpellRare",             { "cterm": "underline", "fg": s:pink})
-call s:h("Statement",             { "fg": s:norm, "cterm": "bold"})
+call s:h("Statement",             { "fg": s:norm, "cterm": "bold", "gui": "bold"})
 call s:h("StatusLine",            { "bg": s:bg_very_subtle})
 call s:h("StatusLineNC",          { "bg": s:bg_very_subtle, "fg": s:medium_gray})
 call s:h("TabLine",               { "fg": s:norm_subtle, "bg": s:bg})
@@ -184,6 +189,7 @@ call s:h("NoteSign",        {"fg": s:blue})
 " Haskell {{{1
 hi! link haskellBlockComment Comment
 hi! link hsVarSym Statement
+hi! link ConId Statement
 "}}}1
 
 execute (":set background=" . g:old_bg)
