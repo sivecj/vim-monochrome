@@ -20,7 +20,7 @@ endfunction
 
 " Definitions {{{1
 let s:actual_white    = { "gui" : "#ffffff", "cterm": "231" }
-let s:black           = { "gui" : "#000000", "cterm": "233" }
+let s:black           = { "gui" : "#0a0a0a", "cterm": "233" }
 let s:blue            = { "gui" : "#0000ff", "cterm": "12"  }
 let s:dark_blue       = { "gui" : "#000080", "cterm": "4"   }
 let s:dark_cyan       = { "gui" : "#008080", "cterm": "6"   }
