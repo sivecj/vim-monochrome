@@ -81,7 +81,7 @@ else
   let s:green           = s:dark_green
   let s:red             = s:dark_red
   let s:visual          = s:light_blue
-  let s:accent          = { "gui" : "#5f5fdf", "cterm" : "62" }
+  let s:accent          = { "gui" : "#b22222", "cterm" : "124" }
 endif
 "}}}1
 " Generic colours {{{1
