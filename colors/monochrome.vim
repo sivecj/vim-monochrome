@@ -19,7 +19,6 @@ function! s:h(group, style)
 endfunction
 
 " Definitions {{{1
-let s:actual_white    = { "gui" : "#ffffff", "cterm": "231" }
 let s:black           = { "gui" : "#0a0a0a", "cterm": "233" }
 let s:blue            = { "gui" : "#0000ff", "cterm": "12"  }
 let s:dark_blue       = { "gui" : "#000080", "cterm": "4"   }
@@ -47,7 +46,7 @@ let s:nice_yellow     = { "gui" : "#ffff00", "cterm": "226" }
 let s:orange          = { "gui" : "#df5f5f", "cterm": "167" }
 let s:pink            = { "gui" : "#ff0000", "cterm": "9"   }
 let s:subtle_black    = { "gui" : "#1c1c1c", "cterm": "234" }
-let s:white           = { "gui" : "#ffffff", "cterm": "15"  }
+let s:white           = { "gui" : "#ffffff", "cterm": "231" }
 let s:yellow          = { "gui" : "#fffa00", "cterm": "11"  }
 
 let g:old_bg=&background
@@ -57,7 +56,7 @@ if &background == "dark"
   let s:bg_subtle       = s:light_black
   let s:bg_mild_subtle  = s:light_black_2
   let s:bg_very_subtle  = s:subtle_black
-  let s:norm_strong     = s:actual_white
+  let s:norm_strong     = s:white
   let s:norm_inverse    = s:black
   let s:norm            = s:lighter_gray
   let s:norm_subtle     = s:light_gray
