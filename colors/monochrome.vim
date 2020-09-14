@@ -1,21 +1,21 @@
 hi clear
 
 if exists('syntax on')
-    syntax reset
+	syntax reset
 endif
 
 let g:colors_name='monochrome'
 
 " https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
-  execute "highlight" a:group
-        \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
-        \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
-        \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
-        \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
-        \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
-        \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
-        \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+	execute "highlight" a:group
+	      \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+	      \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+	      \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+	      \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+	      \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
+	      \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
+	      \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
 
 " Definitions {{{1
@@ -35,52 +35,52 @@ let s:light_blue      = { "gui" : "#afdfff", "cterm": "153" }
 let s:light_cyan      = { "gui" : "#00ffff", "cterm": "14"  }
 let s:light_gray      = { "gui" : "#808080", "cterm": "245" }
 let s:light_gray_2    = { "gui" : "#d0d0d0", "cterm": "252" }
-let s:light_green     = { "gui" : "#00ff00", "cterm": "10"  }
+let s:light_green     = { "gui" : "#00ff00", "cterm": "35"  }
 let s:light_purple    = { "gui" : "#ff00ff", "cterm": "13"  }
 let s:light_red       = { "gui" : "#800000", "cterm": "1"   }
 let s:lighter_black   = { "gui" : "#585858", "cterm": "240" }
 let s:lighter_gray    = { "gui" : "#eeeeee", "cterm": "255" }
 let s:medium_gray     = { "gui" : "#767676", "cterm": "243" }
-let s:nice_green      = { "gui" : "#00af5f", "cterm": "35"  }
-let s:nice_yellow     = { "gui" : "#ffff00", "cterm": "226" }
-let s:orange          = { "gui" : "#df5f5f", "cterm": "167" }
-let s:pink            = { "gui" : "#ff0000", "cterm": "9"   }
-let s:subtle_black    = { "gui" : "#1c1c1c", "cterm": "234" }
+let s:nice_green      = { "gui" : "#00af5f", "cterm": "29"  }
+let s:nice_yellow     = { "gui" : "#ffff00", "cterm": "214" }
+let s:orange          = { "gui" : "#df5f5f", "cterm": "166" }
+let s:pink            = { "gui" : "#ff0000", "cterm": "162" }
+let s:subtle_black    = { "gui" : "#1c1c1c", "cterm": "238" }
 let s:white           = { "gui" : "#ffffff", "cterm": "231" }
 let s:yellow          = { "gui" : "#fffa00", "cterm": "11"  }
+" Accent - For strings, etc.
+let s:accent          = { "gui" : "#fffa00", "cterm": "72"  }
 
 let g:old_bg=&background
 
 if &background == "dark"
-  let s:bg              = s:black
-  let s:bg_subtle       = s:light_black
-  let s:bg_mild_subtle  = s:light_black_2
-  let s:bg_very_subtle  = s:subtle_black
-  let s:norm_strong     = s:white
-  let s:norm_inverse    = s:black
-  let s:norm            = s:lighter_gray
-  let s:norm_subtle     = s:light_gray
-  let s:purple          = s:dark_purple
-  let s:cyan            = s:light_cyan
-  let s:green           = s:light_green
-  let s:red             = s:light_red
-  let s:visual          = s:lighter_black
-  let s:accent          = { "gui" : "#00af87", "cterm" : "36" }
+	let s:bg              = s:black
+	let s:bg_subtle       = s:light_black
+	let s:bg_mild_subtle  = s:light_black_2
+	let s:bg_very_subtle  = s:subtle_black
+	let s:norm_strong     = s:white
+	let s:norm_inverse    = s:black
+	let s:norm            = s:lighter_gray
+	let s:norm_subtle     = s:light_gray
+	let s:purple          = s:dark_purple
+	let s:cyan            = s:light_cyan
+	let s:green           = s:light_green
+	let s:red             = s:light_red
+	let s:visual          = s:lighter_black
 else
-  let s:bg              = s:white
-  let s:bg_subtle       = s:light_gray
-  let s:bg_mild_subtle  = s:light_gray_2
-  let s:bg_very_subtle  = s:lighter_gray
-  let s:norm_strong     = s:black
-  let s:norm_inverse    = s:white
-  let s:norm            = s:black
-  let s:norm_subtle     = s:light_gray
-  let s:purple          = s:dark_purple
-  let s:cyan            = s:dark_cyan
-  let s:green           = s:dark_green
-  let s:red             = s:dark_red
-  let s:visual          = s:light_blue
-  let s:accent          = { "gui" : "#b22222", "cterm" : "124" }
+	let s:bg              = s:white
+	let s:bg_subtle       = s:light_gray
+	let s:bg_mild_subtle  = s:light_gray_2
+	let s:bg_very_subtle  = s:lighter_gray
+	let s:norm_strong     = s:black
+	let s:norm_inverse    = s:white
+	let s:norm            = s:black
+	let s:norm_subtle     = s:light_gray
+	let s:purple          = s:dark_purple
+	let s:cyan            = s:dark_cyan
+	let s:green           = s:dark_green
+	let s:red             = s:dark_red
+	let s:visual          = s:light_blue
 endif
 "}}}1
 " Generic colours {{{1
